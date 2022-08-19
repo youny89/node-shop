@@ -1,0 +1,65 @@
+<%-include('../inc/head.ejs')%>
+<link rel="stylesheet" href="/css/admin/product.css">
+<link rel="stylesheet" href="/css/admin/add-product.css">
+<script src="/js/upload.js" defer></script>
+</head>
+<body>
+    <%-include('../inc/topbar.ejs')%>
+    <main class="container">
+        <%-include('../inc/sidebar.ejs')%>
+        <div class="content">
+            <div class="product-head card">
+                <h2>상품</h2>
+                <div>
+                    <a href="/admin/add-product">상품 등록하기</a>
+                    <a href="/admin/add-category">카테고리 등록하기</a>
+                </div>
+            </div>
+            <div class="product-add card">
+                <form id="add-product" action="/admin/add-product" method="post" >
+                    <div class="container-input-group">
+                        <div class="input-group">
+                            <label for="title">상품 이름</label>
+                            <input id="title" name="title" type="text" placeholder="상품명을 입력해주세요">
+                        </div>
+                        <div class="input-group">
+                            <label for="price">상품 가격</label>
+                            <input name="price" type="number"  placeholder="상품명을 입력해주세요">
+                        </div>
+                        <div class="input-group">
+                            <label for="category">카테고리</label>
+                            <select name="categoryId" id="category">
+                                <option>카테고리를 선택해주세요</option>
+                                <%categories && categories.forEach(category=>{%>
+                                    <option value="<%=category._id%>"><%=category.name%></option>
+                                <%})%>
+                            </select>
+                            </input>
+                        </div>
+                        <div class="input-group">
+                            <label for="">하위 카테고리</label>
+                            <select name="sub_category" id="sub_category"></select>
+                        </div>
+                        <div class="input-group">
+                            <label for="numberInStock">재고</label>
+                            <input name="numberInStock" type="number"  placeholder="재고수량">
+                        </div>
+                        <div class="input-group">
+                            <label for="description">상품 상세 설명</label>
+                            <textarea name="description" id="description"></textarea>
+                        </div>
+                        <div class="input-group">
+                            <button type="submit">상품 업로드</button>
+                        </div>
+                    </div>
+                    <div class="input-file-group">
+                        <label for="image">
+                            <img />
+                        </label>
+                        <input type="file"  id="image" name="image" hidden>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+<%-include('../inc/footer.ejs')%>

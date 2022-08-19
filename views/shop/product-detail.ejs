@@ -1,0 +1,103 @@
+<%-include('../inc/head.ejs')%>
+<link rel="stylesheet" href="/css/product/detail.css">
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js" defer></script>
+<script src="/js/product-detail.js" defer></script>
+<script src="/js/add-to-cart.js" defer></script>
+</head>
+<body>
+    <%-include('../inc/nav.ejs')%>
+    <main>
+        <div class="product-detail card">
+            <div class="left">
+                <img src="<%=product.imageUrl%>/public">
+            </div>
+            <div class="right">
+                <div class="product-info">
+                    <h3><%=product.title%></h3>
+                    <p><%=product.description%></p>
+                    <p>Model : 181cm / 68kg M사이즈</p>
+                </div>
+                <div class="product-order">
+                    <div class="product-price">
+                        <span>Price</span>
+                        <span><%=product.price%>원</span>
+                    </div>
+                    <div class="price-comment">
+                        <span>Comment</span>
+                        <span>시원한 소재감, 허리고무줄, 질좋은 원단입니다.</span>
+                    </div>
+                    <%if(isAuthenticated){%>
+                        <div  class="product-buttons">
+                            <button id="slide-checkout-btn">
+                                <img src="/images/payment_icon_yellow_small.png" alt="">
+                                <span>BUY IT NOW</span>
+                            </button>
+                            <button class="add-to-cart" data-productid="<%=product._id%>">
+                                <svg class="w-3 h-3 " fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>    
+                            </button>
+                        </div>
+                    <%}%>
+
+                    <%if(isAuthenticated){%>
+                        <div class="checkout" id="checkout">
+                            <div class="checkout-header">
+                                <h1>배송지를 선택해주세요.</h1>
+                                <button id="cancel-btn">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                                </button>
+                            </div>
+                            <div class="checkout-content">
+                                <form action="/order" method="post">
+                                    <div class="input-group">
+                                        <label for="">주소: </label>
+                                        <input id="order_address" name="address" class="order-address" type="text" placeholder="배송지를 선택해주세요.">
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="">상세 주소: </label>
+                                        <input id="order_address_detail" name="address_detail" type="text" placeholder="배송지를 선택해주세요.">
+                                    </div>
+                                    
+                                    <input type="hidden" name="productId" id="productId" value="<%=product._id%>">
+                                    <div class="price">가격: <span><%=product.price%>원</span></div>
+                                    <button type="submit">확인</button>
+                                </form>
+                            </div>
+                            <div class="checkout-footer">
+                            </div>
+                        </div>
+                    <%}%>
+                </div>
+            </div>
+        </div>
+        <div class="reviews">
+            <h1>리뷰 - <%=reviews.length%>개</h1>
+            <div class="review-list">
+                <%reviews.forEach(review=>{%>
+                    <div class="review-item">
+                        <div class="review-title">
+                            <h2><%=review.title%></h2>
+                            <div>
+                                <%for(let i=0; review.score > i; i++){%>
+                                    <span>
+                                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                    </span>
+                                <%}%>
+                            </div>
+                        </div>
+                        <div class="review-content">
+                            <div>
+                                작성자: <%=review.userId.email%>
+                            </div>
+                            <div><%=review.extra_info.height%></div>
+                            <div><%=review.extra_info.weight%></div>
+                            <div><%=review.review%></div>    
+                        </div>
+                    </div>
+                <%})%>
+            </div>
+        </div>
+        <div class="list-review"></div>
+
+    </main>
+<%-include('../inc/footer.ejs')%>
+

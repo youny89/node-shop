@@ -1,0 +1,35 @@
+<%-include('../inc/head.ejs')%>
+<link rel="stylesheet" href="/css/auth.css">
+</head>
+<body>
+    <%-include('../inc/nav.ejs')%>
+   
+    <main class="auth">
+        <h1>비밀번호 재설정</h1>
+        <form action="/reset" method="post">
+            <div class="input-group <%=error?'invalid':''%>">
+                <label for="">새로운 비밀번호</label>
+                <input name="new_password" type="password" placeholder="새 비밀번호를 입력해주세요" value="<%=payload?payload.new_password:''%>">
+                <%if(error&&error.new_password){%>
+                    <small><%=error.new_password.msg%></small>
+                <%}%>
+            </div>
+            <div class="input-group <%=error?'invalid':''%>">
+                <label for="">새로운 비밀번호 확인</label>
+                <input name="new_password2" type="password" placeholder="새 비밀번호를 다시 입력해주세요">
+                <%if(error&&error.new_password2){%>
+                    <small><%=error.new_password2.msg%></small>
+                <%}%>
+            </div>
+            <input type="hidden" name="userId" value="<%=userId%>">
+            <input type="hidden" name="resetPasswordToken" value="<%=resetPasswordToken%>">
+            <button type="submit">확인</button>
+        </form>
+    </main>
+
+    <div class="path">
+        <a href="/">home</a> /
+        <a href="/signup">signup</a>
+    </div>
+<%-include('../inc/footer.ejs')%>
+

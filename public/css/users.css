@@ -1,0 +1,116 @@
+.me {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    justify-content: center;
+    flex-basis: 600px;
+}
+
+.profile,
+.address,
+.update-password
+ {
+    width:600px;
+    text-align: center;
+    margin:auto;
+    margin-bottom:4rem;
+}
+.section-title{
+    font-weight: 400;
+    font-size:1.4rem;
+    margin-bottom: 2rem;
+} 
+.add-address #address-search {
+    cursor: pointer;
+}
+.profile div{
+    display: flex;
+    flex-direction: column;
+}
+
+.update-password form{
+    display: none;
+}
+
+.update-password.show form {
+    display: block;
+}
+.update-password .section-title {
+    cursor: pointer;
+}
+.address .add-address,
+.address .address-list{
+    display: none;
+}
+.address .add-address.active{
+    display: block;
+}
+.address .address-list.active{
+    display: flex;
+    justify-content: center;
+}
+
+.address .address-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3rem;;
+}
+
+.address .address-buttons button.active{
+    background: #ddd;
+}
+
+.address .address-buttons button{
+    width:50%;
+    font-size: 1.2rem;;
+    cursor: pointer;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border:solid 1px #ddd;
+}
+.address-list{
+    width:600px;
+    margin:auto;
+    display: flex;
+    gap:0.6rem;
+}
+
+.address-list li {
+    padding:0.5rem;
+    border:solid 1px #ddd;
+}
+.address-list li h3 {
+    color:#666;
+    font-weight: 400;
+}
+
+.input-group{
+    margin-bottom:1rem;
+}
+.input-group input{
+    width:100%;
+    padding:0.8rem 1.2rem;
+}
+.input-group input:read-only {
+    background-color: #ddd;
+    cursor: not-allowed;
+}
+.input-group label {
+    text-align: left;;
+    display: block;
+}
+
+.me .profile form button[type='submit'],
+.me .update-password form button[type='submit'],
+.me .add-address form button[type='submit']
+{
+    padding:0.8rem 1.2rem;
+    font-size: 1.2rem;
+    color:#fff;
+    background-color: #333;
+    cursor: pointer;
+    width:100%;
+}

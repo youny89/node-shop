@@ -1,0 +1,52 @@
+<%-include('../inc/head.ejs')%>
+<link rel="stylesheet" href="/css/product/add-review.css">
+</head>
+<body>
+    <%-include('../inc/nav.ejs')%>
+    <main class="add-review">
+        <h1>라뷰 작성</h1>
+        <div class="container">
+            <div class="product">
+                <div class="image-container">
+                    <img src="<%=product.imageUrl%>/productDetail" alt="">
+                </div>
+                <div class="product-content">
+                    <h3><%=product.title%></h3>
+                    <h3><%=product.price%></h3>
+                </div>
+            </div>
+            <div class="review-form-container">
+                <form method="post" action="/add-review">
+                    <div class="input-group ">
+                        <label for="">제목</label>
+                        <input name="title" id="title" type="text" placeholder="제목을 입력해주셍됴" >
+                    </div>
+                    <div class="input-group">
+                        <label for="">리뷰</label>
+                        <textarea name="review" id="review"rows="5"></textarea>
+                    </div>
+                    <div class="input-group">
+                        <label for="">평가</label>
+                        <input name="score" id="score" type="number" min="1" max="5" placeholder="점수를 입력해주세요" >
+                    </div>
+                    <div class="input-group inline">
+                        <label for="">추가정보</label>
+                        <div>
+                            <span>키 :</span>
+                            <input name="height"  type="text"  placeholder="키를 입력해주세요." >
+                        </div>
+                        <div>
+                            <span>몸무게 :</span>
+                            <input name="weight"  type="text"  placeholder="몸무게를 입력해주세요." >
+                        </div>
+                    </div>
+                    <input type="hidden" name="productId" value="<%=product._id%>">
+                    <div>
+                        <button class="submit-btn" type="submit">확인</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+<%-include('../inc/footer.ejs')%>
+

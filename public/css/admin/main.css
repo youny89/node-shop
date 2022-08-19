@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Dongle:wght@300;400&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    font-family: 'Dongle', sans-serif;
+    font-size: 1.2rem;;
+}
+button{
+    font-family: 'Dongle', sans-serif;
+    font-size:1rem;
+    cursor: pointer;
+}
+button:hover{
+    background-color: rgba(0,0,0,0.4);
+}
+body{
+    font-family: 'Dongle', sans-serif;
+    background-color: #f6f6f9;
+}
+.card {
+    padding:2rem;
+    box-shadow: 0 2rem 3rem rgba(132,139,200,0.18);
+}
+.topbar{
+    height:50px;
+    width:100%;
+    padding:0 2rem;
+    position: sticky;
+    top:0;
+    z-index:999;
+    box-shadow: 0 1px 10px rgba(132,139,200,0.18);
+    background-color: #fff;
+}
+
+.topbar-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height:100%;
+}
+.topbar .right ul{
+    display: flex;
+    align-items: center;
+}
+.topbar .right ul .avatar {
+    height:40px;
+    width:40px;
+    background-color: #ddd;
+    border:solid 1px #ddd;
+    border-radius: 100%;
+}
+.topbar .right ul a{
+    color:#333;
+    font-size:1rem;
+    padding-right:1rem;
+    display: flex;
+    align-items: center;
+}
+.sidebar {
+    height:calc(100vh - 50px);
+    position: fixed;
+    top:3rem;
+    box-shadow: 0 2rem 3rem rgba(132,139,200,0.18);
+    background-color: #fff;
+    width:200px;
+    padding:1rem;
+}
+
+.sidebar .sidebar-menu {
+    margin-bottom:2rem;
+}
+.sidebar .sidebar-menu h2 {
+    font-size: 0.8rem;
+    color:lightgray;
+}
+.sidebar .sidebar-menu ul {
+}
+.sidebar .sidebar-menu ul li {
+    padding:0.8em;
+    width:100%;
+    margin-bottom:1rem;
+}
+.sidebar .sidebar-menu ul li:hover{
+    background-color: #b29ff7;
+}
+.sidebar .sidebar-menu ul a{
+    font-weight: 500;
+    color:#333;
+    width:100%;
+    display: block;
+    font-size:1.2rem;
+}
+.content{
+    padding: 2rem;
+    margin-left:200px
+}

@@ -1,0 +1,45 @@
+<%-include('../inc/head.ejs')%>
+<link rel="stylesheet" href="/css/auth.css">
+</head>
+<body>
+    <%-include('../inc/nav.ejs')%>
+   
+    <main class="auth">
+        <h1>회원가입 해주세요</h1>
+        <form action="/signup" method="post">
+            <div class="input-group <%=error?'invalid':''%>">
+
+                <label for="">이메일</label>
+                <input name="email" type="text" placeholder="이메일 주소를 입력해주세요" value="<%=payload?payload.email:''%>">
+                <%if(error&&error.email){%>
+                    <small><%=error.email.msg%></small>
+                <%}%>
+            </div>
+            <div class="input-group <%=error?'invalid':''%>">
+                <label for="">비밀번호</label>
+                <input name="password" type="password" placeholder="비밀번호를 입력해주세요" value="<%=payload?payload.password:''%>">
+                <%if(error&&error.password){%>
+                    <small><%=error.password.msg%></small>
+                <%}%>
+            </div>
+            <div class="input-group <%=error?'invalid':''%>">
+                <label for="">비밀번호 확인</label>
+                <input name="password2" type="password" placeholder="비밀번호를 다시 입력해주세요">
+                <%if(error&&error.password2){%>
+                    <small><%=error.password2.msg%></small>
+                <%}%>
+            </div>
+            <button type="submit">회원가입</button>
+            <div class="actions">
+                <a href="/forgot">비밀번호 찾기</a>
+                <a href="/login">로그인 하기</a>
+            </div>
+        </form>
+    </main>
+
+    <div class="path">
+        <a href="/">home</a> /
+        <a href="/signup">signup</a>
+    </div>
+<%-include('../inc/footer.ejs')%>
+

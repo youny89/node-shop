@@ -1,0 +1,36 @@
+<%-include('../inc/head.ejs')%>
+<link rel="stylesheet" href="/css/product/product-list.css">
+<link rel="stylesheet" href="/css/product/category.css">
+<script src="/js/category.js" defer></script>
+<script src="/js/add-to-cart.js"></script>
+</head>
+<body>
+    <%-include('../inc/nav.ejs')%>
+    <main>
+        <div class="categories">
+            <%if(products){%>
+                <div class="category-nav">
+                    <h1 class="category-name"><%=category&&category.name && category.name.toUpperCase()%></h1>
+                    <h2 class="sub-category"><%category&&category.sub_category && category.sub_category.length > 0 && category.sub_category.forEach(subName=>{%>
+                        <a href="/category/<%=category.name%>/<%=subName%>"><%=subName%></a>
+                    <%})%></h2> 
+                </div>
+                <hr>
+                <div class="product-filter">
+                    <div>Total:<%=products.length%></div>
+                    <div class="filter-items" id="filter-items">
+                        <span data-filter="new">NEW</span>
+                        <span data-filter="low">LOW PRICE</span>
+                        <span data-filter="high">HIGH PRICE</span>
+                        <span data-filter="review">REVIEW</span>
+                    </div>
+                </div>
+                <%-include('../inc/product-list.ejs',{products:products})%>
+            </div>
+            <%} else {%>
+                <p>no products.</p>
+            <%}%>
+
+    </main>
+<%-include('../inc/footer.ejs')%>
+

@@ -1,0 +1,89 @@
+<%-include('../inc/head.ejs')%>
+<link rel="stylesheet" href="/css/users.css">
+<script src="/js/users.js" defer></script>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js" defer></script>
+</head>
+<body>
+    <%-include('../inc/nav.ejs')%>
+   
+    <main class="me">
+        <h1 class="page-title">PROFILE</h1>
+
+        <div class="profile">
+            <h3 class="section-title">기본 정보</h3>
+            <form method="post" action="/users/update-profile">
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" value="<%=user.email%>" readonly>
+                </div>
+                <div class="input-group">
+                    <label for="name">이름</label>
+                    <input type="text" id="name" name="name" placeholder="이름을 입력해주세요." value="<%=user.name?user.name:''%>">
+                </div>
+                <div class="input-group">
+                    <button type="submit">프로필 업데이트</button>
+                </div>
+            </form>
+          
+        </div>
+        <div class="address">
+            <div class="address-buttons">
+                <button id="addresss-list-btn" class="active">배송지 리스트</button>
+                <button id="address-add-btn">배송지 주소 등록하기</button>
+            </div>
+            <div class="add-address" id="container-add-address-form">
+                <form method="post" action="/users/update-address">
+                    <div class="input-group">
+                        <label for="address_name">배송지 이름</label>
+                        <input type="text" name="address_name" id="address_name" placeholder="예) 내집, 회사 등...">
+                    </div>
+                    <div class="input-group">
+                        <label for="address">배송지 주소</label>
+                        <input type="text" name="address" id="address-search">
+                    </div>
+                    <div class="input-group">
+                        <label for="address-detail">상세 주소</label>
+                        <input type="text" name="address_detail" placeholder="상제 주소를 입력해주세요">
+                    </div>
+                    <div class="input-group">
+                        <button type="submit">배송지 등록하기</button>
+                    </div>
+                </form>
+            </div>
+            <ul class="address-list active" id="container-address-list">
+                <%if(user.address && user.address.length > 0){%>
+                    <%user.address.forEach(a=>{%>
+                        <li>
+                            <h3><%=a.name%></h3>
+                            <p><%=a.address%></p>
+                            <p><%=a.detail%></p>
+                        </li>
+                    <%})%>
+                <%}%>
+            </ul>  
+        </div>
+
+        <div id="update-password-container" class="update-password">
+            <h3 id="update-password-toggle" class="section-title">비밀번호 변경 <span>↓</span></h3>
+            <form action="/users/update-password" method="post">
+                <div class="input-group">
+                    <label for="current_password">현재 비밀번호</label>
+                    <input type="password" name="current_password" id="current_password" placeholder="현재 이용중인 비밀번호를 입력해주세요">
+                </div>
+                <div class="input-group">
+                    <label for="new_password">새로운 비밀번호</label>
+                    <input type="password" name="new_password" id="new_password" placeholder="새로 이용할 비밀번호를 입력해주세요">
+                </div>
+                <div class="input-group">
+                    <label for="confirm_new_password">새로운 비밀번호 확인</label>
+                    <input type="password" name="confirm_new_password" id="confirm_new_password" placeholder="다시 한번 새로 이용할 비밀번호를 입력해주세요">
+                </div>
+                <div class="input-group">
+                    <button type="submit">비밀번호 업데이트</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+<%-include('../inc/footer.ejs')%>
+

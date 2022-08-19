@@ -1,0 +1,15 @@
+<%-include('../inc/head.ejs')%>
+<link rel="stylesheet" href="/css/slider.css">
+<link rel="stylesheet" href="/css/product/product-list.css">
+<script src="/js/slide.js" defer></script>
+<script src="/js/add-to-cart.js" defer></script>
+</head>
+<body>
+    <%-include('../inc/nav.ejs')%>
+    <main class="index">
+        <%-include('../inc/slider.ejs')%>
+        <h1 class="new-arrivals">NEW ARRIVALS</h1>
+        <%-include('../inc/product-list.ejs',products)%>
+    </main>
+<%-include('../inc/footer.ejs')%>
+

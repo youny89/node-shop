@@ -1,0 +1,37 @@
+<%-include('../inc/head.ejs')%>
+    <link rel="stylesheet" href="/css/product/product-list.css">
+    <link rel="stylesheet" href="/css/product/category.css">
+    <script src="/js/category.js" defer></script>
+    <script src="/js/add-to-cart.js" defer></script>
+</head>
+<body>
+    <%-include('../inc/nav.ejs')%>
+    <main>
+        <div class="categories">
+            <%if(data){%>
+                <div class="category-nav">
+                    <h1 class="category-name"><%=data&&data.name && data.name.toUpperCase()%></h1>
+                    <h2 class="sub-category"><%data&&data.sub_category && data.sub_category.length > 0 && data.sub_category.forEach(subName=>{%>
+                        <a href="/category/<%=data.name%>/<%=subName%>"><%=subName%></a>
+                    <%})%></h2> 
+                </div>
+                <!-- <div class="best-slid"><h1>BEST ITEMS LIST</h1></div> -->
+                <hr>
+                <div class="product-filter">
+                    <div>Total:<%=data.products.length%></div>
+                    <div class="filter-items" id="filter-items">
+                        <span data-filter="new">NEW</span>
+                        <span data-filter="low">LOW PRICE</span>
+                        <span data-filter="high">HIGH PRICE</span>
+                        <span data-filter="review">REVIEW</span>
+                    </div>
+                </div>
+                <%-include('../inc/product-list.ejs',{products:data.products})%>
+            </div>
+            <%} else {%>
+                <p>no products.</p>
+            <%}%>
+
+    </main>
+<%-include('../inc/footer.ejs')%>
+

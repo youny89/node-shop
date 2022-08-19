@@ -1,0 +1,46 @@
+<%-include('../inc/head.ejs')%>
+<link rel="stylesheet" href="/css/product/order.css">
+</head>
+<body>
+    <%-include('../inc/nav.ejs')%>
+    <main>
+        <div class="orders">
+            <h1>Order</h1>
+            <div class="order-list">
+                <table>
+                    <thead>
+                        <th>상품정보</th>
+                        <th>수량</th>
+                        <th>구매금액</th>
+                        <th>결제방식</th>
+                        <th>주문상태</th>
+                        <th>주문날짜</th>
+                        <th>/</th>
+                    </thead>
+                    <tbody>
+                        <%if(orders && orders.length > 0){%>
+                            <%orders.forEach(order=>{%>
+                                <tr>
+                                        <td><%=order.extra_info.item_name%></td>
+                                        <td><%=order.products.length%></td>
+                                        <td><%=order.extra_info.amount.total%></td>
+                                        <td><%=order.extra_info.payment_method_type%></td>
+                                        <td>주문 완료 / 배송 준비중</td>
+                                        <td><%=getDateFormat(order.extra_info.created_at)%></td>
+                                        <td><a href="/orders/<%=order._id%>" class="order-detail-btn">자세히 보기</a></td>
+                                    </tr>
+                            <%})%>
+                        <%} else {%>
+                            <tr>주문 내역이 없습니다</tr>
+                        <%}%>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <div class="path">
+        <a href="/">home</a>
+    </div>
+<%-include('../inc/footer.ejs')%>
+

@@ -1,0 +1,53 @@
+<%-include('../inc/head.ejs')%>
+<link rel="stylesheet" href="/css/admin/product.css">
+<link rel="stylesheet" href="/css/admin/add-category.css">
+</head>
+<body>
+    <%-include('../inc/topbar.ejs')%>
+    <main class="container">
+        <%-include('../inc/sidebar.ejs')%>
+        <div class="content">
+            <div class="product-head">
+                <a href="/admin/add-product">상품 등록하기</a>
+            </div>
+            <div class="form-container">
+                <div class="category-add">
+                    <h2>카테고리 추가</h2>
+                    <form action="/admin/add-category" method="post" >
+                        <div class="input-group">
+                            <label for="name">카테고리 이름</label>
+                            <input id="name" name="name" type="text" placeholder="카테고리 이름 입력해주세요">
+                        </div>
+                        <div class="input-group">
+                            <button type="submit">카테고리 추가하기</button>
+                        </div>
+                     </form>
+                </div>
+    
+                
+                <div id="sub-form-container" class="sub-category-add">
+                    <h2>하위 카테고리 추가</h2>
+                    <form action="/admin/add-sub-category" method="post">
+                        <div class="input-group">
+                            <label for="name">카테고리를 선택하세요.</label>
+                            <select name="categoryId" >
+                                <%categories.forEach(category => {%>
+                                    <option value="<%=category._id%>"><%=category.name%></option>
+                                <%})%>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="name">하위 카테고리 이름</label>
+                            <input name="subName" type="text" placeholder="하위 카테고리 이름 입력해주세요">
+                        </div>
+                        <div class="input-group">
+                            <button type="submit">하위 카테고리 추가하기</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+<%-include('../inc/footer.ejs')%>

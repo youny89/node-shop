@@ -1,0 +1,53 @@
+<nav>
+    <div>
+        <h3><a href="/">NODE SHOP</a></h3>
+    </div>
+    <%if(isAuthenticated && isAdmin){%>
+        <span>개발자모드 (관리자 로그인중)</span>
+        <ul>
+            <li>
+                <a href="/admin/add-product">ADD PRODUCT</a>
+            </li>
+            <li>
+                <a href="/admin/add-category">ADD CATEGORY</a>
+            </li>
+        </ul>
+    <%}%>
+    <ul>
+        <%if(!isAuthenticated){%>
+            <li class="<%= path === '/login' ? 'active' : '' %>"> <a href="/login" >LOGIN</a></li>
+            <li class="<%= path === '/signup' ? 'active' : '' %>"><a href="/signup">JOIN Us</a></li>
+        <%} else {%>
+            <li><a href="/cart">CART</a></li>
+            <li><a href="/orders">ORDER</a></li>
+            <li><a href="/users/me">MY PAGE</a></li>
+            <li>
+                <form method="post" action="/logout" class="logout">
+                    <button>LOGOUT</button>
+                </form>
+            </li>
+
+        <%}%>
+    </ul>
+    <ul class="search">
+        <li>
+            <form method="get" action="/search">
+                <input type="text" name="q" placeholder="상품을 검색해주세요.">
+                <button type="submit">검색</button>
+            </form>
+        </li>
+    </ul>
+    <ul class="category">
+        <div>
+            <li><a href="/category/top">TOP</a></li>
+            <li><a href="/category/pants">PANTS</a></li>
+        </div>
+        <div>
+            <li><a href="/category/others">SHOES&BAG</a></li>
+            <li><a href="#">REVIEW</a></li>
+        </div>
+        <div>
+        </div>
+    </ul>
+</nav>
+<!-- <div id="message" class="message"></div> -->

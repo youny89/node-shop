@@ -1,0 +1,74 @@
+.add-review{
+    margin-top:3rem;
+    padding:0 4rem;
+}
+.add-review h1,
+.add-review h3 {
+    color:#666;
+    font-weight: 400;
+
+}
+.add-review .container{
+    display: flex;
+    background: #f4f4f4;
+    box-shadow: 3px 3px 12px lightgray;
+    gap:2rem;
+}
+
+.add-review .container .product{
+    flex:3;
+    background:#fff;
+    border: solid 1px #ddd;
+    border-right: 0;;
+}
+.add-review .container .product .image-container img{
+    width:100%;
+}
+.add-review .container .product .product-content {
+    text-align: left;
+    padding:0.5rem;
+}
+.add-review .container .review-form-container{
+    flex:4;
+    padding:1rem;
+}
+
+.add-review form .input-group{
+    width:100%;
+    margin-bottom:1rem;
+}
+
+.add-review form .input-group input,
+.add-review form .input-group textarea
+{
+    width:100%;
+    padding:0.4rem 0.2rem;
+    border:none;
+    outline:none;
+    font-family: 'Dongle', sans-serif;
+    font-size:1rem;
+
+}
+.add-review form .input-group label {
+    font-size:1.1rem;
+    color:#666;    
+}
+
+.add-review .input-group.inline div{
+    display: flex;
+    padding: 0 1rem
+}
+.add-review .input-group.inline div span {
+    width:80px;
+    text-align: center;
+}
+.add-review .input-group.inline div input {
+    flex:1
+}
+.submit-btn {
+    background:#333;
+    color:#fff;
+    width:100%;
+    padding:0.4rem 1.2rem;
+    cursor: pointer;
+}

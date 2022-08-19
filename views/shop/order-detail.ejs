@@ -1,0 +1,43 @@
+<%-include('../inc/head.ejs')%>
+<link rel="stylesheet" href="/css/product/index.css">
+<link rel="stylesheet" href="/css/product/order-detail.css">
+<script src="/js/cart.js" defer></script>
+</head>
+<body>
+    <%-include('../inc/nav.ejs')%>
+    <main>
+        <h1 class="section-titlte">주문 정보</h1> 
+        <div class="order-detail">
+            <div><span>주문자: </span><span><%=order.user.email%></span></div>
+            <div><span>배송지: </span><span><%=order.address%></span></div>
+            <div><span>주문 날짜: </span><span><%=order.createdAt%></span></div>
+            <div><span>결제 방법: </span><span><%=order.extra_info.payment_method_type%></span></div>
+            <div><span>상품 수량: </span><span><%=order.products.length%>개</span></div>
+            <div><span>총 가격 </span><span><%=order.extra_info.amount.total%>원</span></div>
+        </div>
+        <h1 class="section-titlte">상품 정보</h1>
+        <div class="product-info">
+            <%order.products.forEach(p=>{%>
+                <div class="product-info-item">
+                    <div class="image-container">
+                        <img src="<%=p.product.imageUrl%>/productList" alt="">
+                    </div>
+                    <div>
+                        <div class="product-content">
+                            <div><%=p.product.title%></div>
+                            <div><%=p.product.price%></div>
+                            <div><%=p.qty%></div>
+                        </div>
+                    </div>
+
+                    <a href="/add-review/<%=p.product._id%>?orderId=<%=order._id%>" class="review-btn">리뷰작성하기</a>
+                </div>
+            <%})%>
+        </div>   
+    </main>
+
+    <div class="path">
+        <a href="/">home</a>
+    </div>
+<%-include('../inc/footer.ejs')%>
+

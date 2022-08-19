@@ -1,0 +1,44 @@
+.categories{
+    margin-top:4rem;
+    padding:0 2rem;
+}
+.categories hr {
+    border:solid 1px #ddd;
+}
+.categories .category-nav {
+    text-align: center;
+    color:#666;
+    margin-bottom:4rem;
+}
+.categories .category-nav h1{
+    font-weight: 500;
+}
+.categories .category-nav h2{
+    display: flex;
+    justify-content: center;
+    gap:4rem;
+}
+.categories .category-nav h2 a{
+    font-weight: 400;
+    font-size: 1.3rem;
+}
+.best-slid {
+    height:300px;
+    width:100%;
+    background:#f4f4f4;
+    margin-bottom:4rem;
+}
+
+.product-filter {
+    display: flex;
+    justify-content: space-between;
+    font-size:1.2rem;
+    padding:0.6rem 0 4rem;
+}
+.product-filter .filter-items span{
+    padding-left:1.8rem;
+    cursor: pointer;
+}
+.product-filter .filter-items span:hover{
+    color:#666;
+}

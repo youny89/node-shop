@@ -1,0 +1,16 @@
+
+<%-include('../inc/head.ejs')%>
+<link rel="stylesheet" href="/css/product/product-list.css">
+</head>
+<body>
+    <%-include('../inc/nav.ejs')%>
+    <main class="search" style="margin-top: 4rem;">
+        <h1 class="new-arrivals">검색 결과: <%=products.length%>개</h1>
+        <%if(products && products.length > 0){%>
+            <%-include('../inc/product-list.ejs',products)%>
+        <%} else {%>
+            <p style="text-align: center;">상품을 찾지 못했습니다.</p>
+        <%}%>
+    </main>
+<%-include('../inc/footer.ejs')%>
+

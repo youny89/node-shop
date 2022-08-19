@@ -1,0 +1,89 @@
+.auth {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top:4rem;
+}
+
+.auth h1 {
+    text-align: center;
+    margin-bottom: 2rem;;
+}
+.auth p{
+    /* font-size: .8rem;; */
+    margin-bottom: 4rem;
+} 
+
+.auth form a{
+    padding:0.8rem 1.5rem;
+    background-color: #f4f4f4;
+}
+
+.auth form .input-group{
+    width:100%;
+    margin-bottom:2rem;
+}
+.auth form .input-group label {
+    display: block;
+    font-size: 1.2rem;
+    padding-bottom:.8rem;
+}
+.auth form .input-group input{
+    padding:0.8rem 1rem;
+    border-radius: 8px;
+    outline: none;
+    border:solid 1px #ddd;
+}
+.auth form .input-group small{
+    font-size: 1rem;;
+    display: block;
+
+}
+
+.auth form .input-group input:focus {
+    border:solid 2px #333;
+}
+
+.auth form button[type='submit'] {
+    display: block;
+    background-color: #333;
+    width:100%;
+    padding:0.8rem 1.2rem;
+    color:#fff;
+    cursor: pointer;
+    outline: none;
+    border:none;
+}
+.auth form button:hover{
+    background-color: #555;
+}
+.auth .actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top:0.5rem;
+}
+.auth .actions a {
+    padding:0.8rem 1rem;
+    background-color: #f4f4f4;
+}
+.auth .actions a:hover{
+    background-color: #444;
+    color:#fff;
+}
+
+.input-group.invalid input{
+    border:solid 1px tomato;
+}
+.input-group.invalid small {
+    color: tomato;
+}
+
+.auth .forgot-message {
+    color: tomato;
+    font-size:1.1rem;
+    padding:0.6rem;
+
+}
+.auth #forgot-form.done-email .forgot-message{
+    color: teal;
+}

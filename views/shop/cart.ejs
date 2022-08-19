@@ -1,0 +1,79 @@
+<%-include('../inc/head.ejs')%>
+<link rel="stylesheet" href="/css/product/cart.css">
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js" defer></script>
+<script src="/js/pages/cart.js" defer></script>
+</head>
+<body>
+    <%-include('../inc/nav.ejs')%>
+    <main>
+
+        <div class="cart">
+            <div class="cart-head">
+                <h1>My Shopping Cart</h1>
+                <%if(product && product.length > 0){%>
+                    <form action="/clear-cart" method="post">
+                        <button class="clear-btn">CLEAR CART</button>
+                    </form>
+                <%}%>
+            </div>
+            <div id="cart-list" class="cart-list card">
+                <%if(product && product.length > 0 ){%>
+                    <%product.forEach(p=>{%>
+                        <div class="cart-item">
+                            <div class="item-image">
+                                <img src="<%=p.productId.imageUrl%>/avatar">
+                            </div>
+                            <div class="cart-content">
+                                <h3><%=p.productId.title%></h3>
+                                <div><span>가격: </span><%=p.productId.price%></div>
+                                <div><span>수량: </span><%=p.qty%>개</div>
+                                <div><span>가격 * 수량 =  </span><%=p.qty * p.productId.price%>원</div>
+                            </div>
+                            <div class="cart-actions">
+                                <button class="remove-btn">✖</button>
+                            </div>
+                        </div>
+                    <%})%>
+                <%} else {%>
+                    <p>카트에 상품이 없어요.</p>
+                <%}%>
+            </div>
+            <div class="cart-order">
+                <form action="/orders" method="post" id="order-form">
+                    <div class="input-group">
+                        <%if(order_address){%>
+                            <p>현재 주문 배송지를 선택해주세요.</p>
+                            <div class="address-item-contianer">
+                                <%order_address.forEach((address)=>{%>
+                                    <div class="address-item">
+                                        <p><%=address.name%></p>
+                                        <span>주소: </span>
+                                        <span><%=address.address%></span>
+                                        <span><%=address.detail%></span>
+                                        <input type="hidden" value="<%=address.address+address.detail%>">
+                                    </div>
+                                <%})%>
+                            </div>
+                        <%} else {%>
+                            <h3>GO TO ADD ADDRESS OR 배송지 입력!</h3>
+                        <%}%>
+                    </div>
+                    <div class="input-group">
+                        <label for="order_address">배송지: </label>
+                        <input id="order_address" name="order_address" class="order-address" type="text" placeholder="배송지를 선택해주세요.">
+                    </div>
+                    <div class="input-group">
+                        <label for="">상세주소: </label>
+                        <input id="order_address_detail" name="order_address_detail" class="order-address-detail" type="text" placeholder="상세주소를 입력해주세요">
+                    </div>
+                    <div class="cart-order-actions">
+                        <button type="submit">모든 상품  <strong><%=totalPrice%>원</strong> 결제하기</button>
+                        <a href="/">쇼핑 계속하기</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+<%-include('../inc/footer.ejs')%>
+

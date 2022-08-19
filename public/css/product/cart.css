@@ -1,0 +1,165 @@
+.cart {
+    margin-top:6rem;
+    padding:2rem;
+}
+.cart p {
+    margin-top: 3rem;
+    text-align: center;
+}
+.cart-head{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom:2rem;
+}
+.cart-head .clear-btn {
+    padding:0.2rem .8rem;
+    cursor: pointer;
+}
+.cart-head h1 {
+    text-align: center;
+    color:#666;
+}
+
+.cart-list {
+}
+.cart-item {
+    display: flex;
+    gap:2rem;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom:1rem;
+    border-bottom:solid 1px #ddd;
+}
+.item-image img {
+    width:100px;
+    height:100px;;
+}
+.cart-content{
+    flex:1;
+    padding:0.5rem;
+    font-size:1.2rem;
+}
+.cart-content h3{
+    color:#666;
+    font-weight: 500;
+}
+.cart-actions{
+    display: flex;
+    flex-direction: column;
+    gap:0.5rem;
+}
+.cart-actions button {
+    padding:0.3rem .8rem;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.buy-btn {
+    background-color: #333;
+    color:#fff;
+}
+.remove-btn {
+    background: transparent;
+    /* border:solid 1px #ddd; */
+    color:#666;
+    /* background-color: #f4f4f4; */
+    font-size:1rem;
+}
+.remove-btn:hover{
+    background-color: #f4f4f4;
+}
+.cart-order {
+    margin:3rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.cart-order h3 {
+    text-align: center;
+    font-weight: 300;
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 3rem;;
+}
+.cart-order form {
+    width:100%;
+    display: flex;
+    flex-direction: column;
+}
+.cart-order form .input-group {
+    position: relative;
+}
+.cart-order-actions {
+    display: flex;
+}
+.cart-order .address-item-contianer {
+    display: flex;
+    justify-content: center;
+    margin-bottom:1rem;
+}
+.cart-order .address-item{
+    padding:1rem;
+    cursor: pointer;
+    border:1.5px dotted #ddd;
+    color:#666;
+    transition: all ease-in .2s;
+}
+.cart-order .address-item:hover{
+    background-color: #333;
+    color:#fff;
+}
+.cart-order .address-item:hover p,
+.cart-order .address-item:hover span  {
+    color:#fff;
+}
+.cart-order .address-item p {
+    text-align: left;
+    font-size:1.2rem;
+    color:#666;
+}
+.cart-order .address-item span {
+    font-size:1.4rem;
+    color:#555;
+}
+
+.cart-order form button {
+    background-color:#333;
+    padding:0.8rem 1.2rem;
+    color:#fff;
+    width:100%;
+    font-size:1.3rem;
+    letter-spacing: 2px;
+    cursor: pointer;
+    flex:1
+}
+.cart-order form a {
+    padding:0.8rem 1.2rem;
+    border: solid 1px #ddd;
+}
+.cart-order .order-address {
+    width:100%;
+    padding:0.8rem 1rem;
+    font-family: 'Dongle', sans-serif;
+    font-size: 1.6rem;;
+    color:#666;
+}
+.cart-order .order-address-detail {
+    width:100%;
+    padding:0.8rem 1rem;
+    font-family: 'Dongle', sans-serif;
+    font-size: 1.6rem;;
+    color:#666;
+}
+.cart-order .input-group {
+    margin-bottom:2rem;
+}
+.cart-order .input-group label {
+    font-size:1.4rem;
+}
+.cart-order .input-group p {
+    margin-bottom:2rem;
+}
+.cart-order form button strong{
+    color:rgb(76, 201, 201);
+}

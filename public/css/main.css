@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Dongle:wght@300;400&display=swap');
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color:#777;
+}
+body{
+    display: flex;
+    font-family: 'Dongle', sans-serif;
+    position: relative;
+}
+button{
+    font-family: 'Dongle', sans-serif;
+    font-size: medium;
+    outline: none;
+    border:none;
+    border-radius: 5px;;
+}
+nav{
+    background: #f4f4f4;
+    height:100vh;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding:2rem;
+    position: fixed;
+}
+nav ul li{
+    display: inline-flex;
+}
+nav ul.category div{
+    display: flex;
+    justify-content: space-between;
+}
+nav li {
+    padding:0.5rem 1rem;
+    border-radius: 10px;
+    flex:50%;
+}
+nav li:hover {
+    background-color: #fff;
+    color:#333
+}
+nav li.active {
+    background:#fff;
+}
+nav form.logout button{
+    outline:none;
+    border:none;
+    background-color: transparent;
+    cursor: pointer;
+    font-family: 'Dongle', sans-serif;
+    font-size:medium;
+    font-weight: bold;
+}
+nav .search li {
+    background-color: #fff;
+    color:#333;
+    padding:0 0 0 0.5rem;
+    width:100%;
+}
+nav .search li form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+nav .search input{
+    outline: none;
+    border:none;
+    flex:1;
+    font-family: 'Dongle', sans-serif;
+    font-size: 1rem;;
+
+}
+nav .search button{
+    width:40px;
+    height:40px;
+    background-color: #333;
+    color:#fff;
+    cursor: pointer;
+}
+
+main{
+    flex:1;
+    margin-left:300px;
+}
+
+h1{
+    font-size:2rem;
+}
+p{
+    font-size: 1.2rem;
+}
+a{
+    font-size:medium;
+    font-weight: bold;
+}
+
+.path {
+    position: absolute;
+    top:5px;
+    right:5rem;
+    font-size:medium;
+}
+.path a {
+    text-decoration: underline;
+}
+.message {
+    padding: .7rem;
+    background: #333;
+    color: #fff;
+    border-radius: 15px;
+    position: fixed;
+    font-size: 1.2rem;
+    transition: all 0.4s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:40%;
+    z-index: 100;
+    animation: slidein ease-in-out .4s;
+    right: 1rem;
+    top:2rem;
+}
+.message.slideout {
+    animation: slideout ease-in-out .4s forwards;
+}
+.error {
+    color: tomato;
+    font-size: 1.2rem;
+    padding:0.8rem;
+}
+
+@keyframes slidein {
+    from {
+        transform: translatey(-100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0px);
+        opacity: .9;
+    }
+}
+@keyframes slideout {
+    from {
+        transform: translateY(0px);
+        opacity: .9;
+    }
+    to {
+        transform: translatey(-100px);
+        opacity: 0;
+    }
+}
